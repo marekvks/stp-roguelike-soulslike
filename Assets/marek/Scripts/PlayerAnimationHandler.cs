@@ -1,18 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(Animator), typeof(InputHandler), typeof(PlayerMovement))]
 public class PlayerAnimationHandler : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private Animator _animator;
+    [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private PlayerMovement _playerMovement;
 
     private void Update()
     {
-        // This will be changed when we change to the unity's new input system
-        _animator.SetFloat("direction magnitude", _playerMovement.direction.magnitude);
+        Move();
+    }
+
+    private void Move()
+    {
+        _animator.SetFloat("Speed", _playerMovement.CurrentSpeed);
+        Vector3 movement = _inputHandler.GetMovement();
+        if (movement.magnitude < 0.1f)
+        {
+            _animator.SetBool("Move", false);
+            return;
+        }
+        _animator.SetBool("Move", true);
     }
 }
