@@ -47,10 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Run logic
-        if (_run)
-            _currentSpeed = Mathf.Lerp(_currentSpeed, _runSpeed, Time.deltaTime * _speedTransitionRate);
-        else
-            _currentSpeed = Mathf.Lerp(_currentSpeed, _walkSpeed, Time.deltaTime * _speedTransitionRate);
+        _currentSpeed = run ? Mathf.Lerp(_currentSpeed, _runSpeed, Time.deltaTime * _speedTransitionRate) : Mathf.Lerp(_currentSpeed, _walkSpeed, Time.deltaTime * _speedTransitionRate);
 
         Vector3 direction = _inputHandler.GetMovement().normalized;
         // Fixes rotation bugs
