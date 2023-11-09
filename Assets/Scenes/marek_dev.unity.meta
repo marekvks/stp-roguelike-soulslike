@@ -1,3 +1,13 @@
+<<<<<<< HEAD:Assets/TutorialInfo/Layout.wlt.meta
+fileFormatVersion: 2
+guid: eabc9546105bf4accac1fd62a63e88e6
+timeCreated: 1487337779
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
 fileFormatVersion: 2
 guid: 4f8cfcc76146ae641b0b4f80a9a24523
 DefaultImporter:
@@ -5,3 +15,4 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+>>>>>>> origin/main:Assets/Scenes/marek_dev.unity.meta

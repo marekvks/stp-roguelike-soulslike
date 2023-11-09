@@ -1,3 +1,14 @@
+<<<<<<< HEAD:Assets/TutorialInfo/Scripts/Editor.meta
+fileFormatVersion: 2
+guid: 3ad9b87dffba344c89909c6d1b1c17e1
+folderAsset: yes
+timeCreated: 1475593892
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
 fileFormatVersion: 2
 guid: 82a16092a512bad4893edd8178bba876
 folderAsset: yes
@@ -6,3 +17,4 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+>>>>>>> origin/main:Assets/marek/Art.meta

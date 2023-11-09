@@ -1,3 +1,14 @@
+<<<<<<< HEAD:Assets/TutorialInfo/Icons.meta
+fileFormatVersion: 2
+guid: 8a0c9218a650547d98138cd835033977
+folderAsset: yes
+timeCreated: 1484670163
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
 fileFormatVersion: 2
 guid: 76c24fd730a403f4db5ea0795ccaf938
 folderAsset: yes
@@ -6,3 +17,4 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+>>>>>>> origin/main:Assets/marek/Art/Characters.meta
