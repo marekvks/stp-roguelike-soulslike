@@ -1,14 +1,3 @@
-<<<<<<< HEAD:Assets/TutorialInfo/Scripts.meta
-fileFormatVersion: 2
-guid: 5a9bcd70e6a4b4b05badaa72e827d8e0
-folderAsset: yes
-timeCreated: 1475835190
-licenseType: Store
-DefaultImporter:
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-=======
 fileFormatVersion: 2
 guid: a8439c547bb1137419453e75a3f9172a
 folderAsset: yes
@@ -17,4 +6,3 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
->>>>>>> origin/main:Assets/marek/Scripts.meta

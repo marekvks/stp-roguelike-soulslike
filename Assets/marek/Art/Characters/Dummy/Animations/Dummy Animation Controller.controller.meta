@@ -1,13 +1,3 @@
-<<<<<<< HEAD:Assets/Readme.asset.meta
-fileFormatVersion: 2
-guid: 8105016687592461f977c054a80ce2f2
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-=======
 fileFormatVersion: 2
 guid: 3ab1b68bde16ccc4f93d92362d8b9c3a
 NativeFormatImporter:
@@ -16,4 +6,3 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
->>>>>>> origin/main:Assets/marek/Art/Characters/Dummy/Animations/Dummy Animation Controller.controller.meta

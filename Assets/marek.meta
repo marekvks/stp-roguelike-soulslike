@@ -1,13 +1,3 @@
-<<<<<<< HEAD:Assets/TutorialInfo.meta
-fileFormatVersion: 2
-guid: ba062aa6c92b140379dbc06b43dd3b9b
-folderAsset: yes
-DefaultImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-=======
 fileFormatVersion: 2
 guid: 2d533acaed94d9b45be3728dd5e51571
 folderAsset: yes
@@ -16,4 +6,3 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
->>>>>>> origin/main:Assets/marek.meta
