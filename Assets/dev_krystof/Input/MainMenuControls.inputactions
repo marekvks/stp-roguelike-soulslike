@@ -1,0 +1,54 @@
+{
+    "name": "MainMenuControls",
+    "maps": [
+        {
+            "name": "MainMenu",
+            "id": "0200de39-1f1a-4927-b6d9-a4d79e6ed4bb",
+            "actions": [
+                {
+                    "name": "RotatingModel",
+                    "type": "Value",
+                    "id": "2d89111c-fd69-4347-86d0-40fa6ca67bfc",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseButtonClicked",
+                    "type": "PassThrough",
+                    "id": "977a2ca5-1a44-4209-82da-7d291157dde8",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "aed48670-7a1f-4561-a31c-57db9a294458",
+                    "path": "<Mouse>/delta/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotatingModel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f7a22b8-fb62-44a8-afc9-660b1b5860b3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseButtonClicked",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
