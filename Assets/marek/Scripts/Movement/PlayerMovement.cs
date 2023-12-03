@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private PlayerAnimationHandler _animationHandler;
+    [SerializeField] private LockOn _lockOn;
     [SerializeField] private Transform _camera;
 
     [Header("Movement Settings")]
     [SerializeField] private float _walkSpeed = 3f;
+    [SerializeField] private float _strafeSpeed = 2f;
     [SerializeField] private float _runSpeed = 6f;
     [SerializeField] private float _speedTransitionRate = 0.1f;
     [SerializeField] private float _characterRotationSmoothness = 0.1f;
@@ -67,28 +70,39 @@ public class PlayerMovement : MonoBehaviour
 
     // For debug purposes
     public Vector3 DIRECTION = Vector3.zero;
+
     /// <summary>
     /// Handles character movement
     /// </summary>
     private void Move()
     {
-
         Vector3 direction = _inputHandler.GetMovement();
-        // This is necessary for quickturn to work correctly
-        Vector3 localDirection = _camera.right * direction.x + _camera.forward * direction.z;
-        // For debug purposes
-        DIRECTION = localDirection;
 
-        // Fixes rotation bugs
         if (direction.magnitude <= 0.1f)
         {
             // if player is not moving, current speed should be 0
             if (_currentSpeed > 0.1f)
                 _currentSpeed = Mathf.MoveTowards(_currentSpeed, 0f, Time.deltaTime * _speedTransitionRate);
-            return;
         }
 
         if (DisableMovement) return;
+
+        if (_lockOn.Locked)
+            Strafe(direction);
+        else
+            FreeMove(direction);
+    }
+
+    private void FreeMove(Vector3 direction)
+    {
+        // Fixes rotation bugs
+        if (direction.magnitude <= 0.1f) return;
+
+
+        // This is necessary for quickturn to work correctly
+        Vector3 localDirection = _camera.right * direction.x + _camera.forward * direction.z;
+        // For debug purposes
+        DIRECTION = localDirection;
 
         // Run logic
         _currentSpeed = _run ? Mathf.MoveTowards(_currentSpeed, _runSpeed, Time.deltaTime * _speedTransitionRate) : Mathf.MoveTowards(_currentSpeed, _walkSpeed, Time.deltaTime * _speedTransitionRate);
@@ -107,6 +121,23 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, smoothRotation, 0f);
 
         _characterController.Move(transform.forward * _currentSpeed * Time.deltaTime);
+    }
+
+    private void Strafe(Vector3 inputDirection)
+    {
+        Transform target = _lockOn.Target;
+        if (target == null) return;
+
+        transform.LookAt(target);
+        transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
+
+        if (inputDirection.magnitude <= 0.1f) return;
+
+        _currentSpeed = _strafeSpeed;
+
+        Vector3 direction = transform.right * inputDirection.x + transform.forward * inputDirection.z;
+
+        _characterController.Move(direction * _currentSpeed * Time.deltaTime);
     }
 
     private void QuickTurnAnim() => _animationHandler.PerformQuickTurn();

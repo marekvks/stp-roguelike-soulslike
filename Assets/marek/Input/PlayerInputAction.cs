@@ -53,6 +53,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LockOnTarget"",
+                    ""type"": ""Button"",
+                    ""id"": ""f92eecbb-8109-401b-8a1c-6d68da568952"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -187,6 +196,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""MoveNotNormalized"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""283745e4-2c22-4d56-86cd-ec3e06b61358"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockOnTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -198,6 +218,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Run = m_Movement.FindAction("Run", throwIfNotFound: true);
         m_Movement_MoveNotNormalized = m_Movement.FindAction("MoveNotNormalized", throwIfNotFound: true);
+        m_Movement_LockOnTarget = m_Movement.FindAction("LockOnTarget", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -262,6 +283,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Run;
     private readonly InputAction m_Movement_MoveNotNormalized;
+    private readonly InputAction m_Movement_LockOnTarget;
     public struct MovementActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -269,6 +291,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Run => m_Wrapper.m_Movement_Run;
         public InputAction @MoveNotNormalized => m_Wrapper.m_Movement_MoveNotNormalized;
+        public InputAction @LockOnTarget => m_Wrapper.m_Movement_LockOnTarget;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -287,6 +310,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @MoveNotNormalized.started += instance.OnMoveNotNormalized;
             @MoveNotNormalized.performed += instance.OnMoveNotNormalized;
             @MoveNotNormalized.canceled += instance.OnMoveNotNormalized;
+            @LockOnTarget.started += instance.OnLockOnTarget;
+            @LockOnTarget.performed += instance.OnLockOnTarget;
+            @LockOnTarget.canceled += instance.OnLockOnTarget;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -300,6 +326,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @MoveNotNormalized.started -= instance.OnMoveNotNormalized;
             @MoveNotNormalized.performed -= instance.OnMoveNotNormalized;
             @MoveNotNormalized.canceled -= instance.OnMoveNotNormalized;
+            @LockOnTarget.started -= instance.OnLockOnTarget;
+            @LockOnTarget.performed -= instance.OnLockOnTarget;
+            @LockOnTarget.canceled -= instance.OnLockOnTarget;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -322,5 +351,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnMoveNotNormalized(InputAction.CallbackContext context);
+        void OnLockOnTarget(InputAction.CallbackContext context);
     }
 }
