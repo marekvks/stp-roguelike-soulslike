@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController _characterController;
     [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private PlayerAnimationHandler _animationHandler;
+    [SerializeField] private Transform _camera;
 
     [Header("Movement Settings")]
     [SerializeField] private float _walkSpeed = 3f;
@@ -73,8 +74,10 @@ public class PlayerMovement : MonoBehaviour
     {
 
         Vector3 direction = _inputHandler.GetMovement();
+        // This is necessary for quickturn to work correctly
+        Vector3 localDirection = _camera.right * direction.x + _camera.forward * direction.z;
         // For debug purposes
-        DIRECTION = direction;
+        DIRECTION = localDirection;
 
         // Fixes rotation bugs
         if (direction.magnitude <= 0.1f)
@@ -92,18 +95,18 @@ public class PlayerMovement : MonoBehaviour
 
         // Determines if the player input and position vectors are the exact opposite (with small tolerance)
         // -0.9f is a fixed value and should not be changed
-        if (_currentSpeed > _walkSpeed && Vector3.Dot(transform.forward, direction) <= -0.9f)
+        if (_currentSpeed > _walkSpeed && Vector3.Dot(transform.forward, localDirection) <= -0.9f)
         {
             QuickTurnAnim();
             return;
         }
 
         // Calculating the correct angle where should the character rotate according to the movement
-        float yRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+        float yRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _camera.eulerAngles.y;
         float smoothRotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, yRotation, ref _yVelocity, _characterRotationSmoothness);
         transform.rotation = Quaternion.Euler(0f, smoothRotation, 0f);
 
-        _characterController.Move(direction * _currentSpeed * Time.deltaTime);
+        _characterController.Move(transform.forward * _currentSpeed * Time.deltaTime);
     }
 
     private void QuickTurnAnim() => _animationHandler.PerformQuickTurn();
