@@ -16,6 +16,9 @@ public class Interaction : MonoBehaviour
     }
     
     private void SubscribeToInput() => _inputHandler.SubscribeToInteraction(Interact);
+    private void OnDestroy() => UnsubscribeFromInput();
+    
+    private void UnsubscribeFromInput() => _inputHandler. UnsubscribeFromInteraction(Interact);
 
     private void Interact(InputAction.CallbackContext context)
     {

@@ -66,5 +66,10 @@ public class InputHandler : MonoBehaviour
             _playerInputAction.Movement.Interact.performed += InteractFunction;
         }
 
+        public void UnsubscribeFromInteraction(Action<InputAction.CallbackContext> InteractFunction)
+        {
+            _playerInputAction.Movement.Interact.performed -= InteractFunction;
+        }
+
     #endregion
 }
