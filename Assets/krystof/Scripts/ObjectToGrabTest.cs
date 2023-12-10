@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectToGrabTest : MonoBehaviour, IGrabable<GameObject>
+public class ObjectToGrabTest : MonoBehaviour, IInteractable
 {
-    public void Grab(GameObject gameObject)
+    public void Interact()
     {
         Debug.Log($"{gameObject.tag} was grabbed");
+        Destroy(gameObject);
     }
 }
