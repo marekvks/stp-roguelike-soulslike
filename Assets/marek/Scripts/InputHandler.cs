@@ -7,6 +7,8 @@ public class InputHandler : MonoBehaviour
 {
     private PlayerInputAction _playerInputAction;
 
+    public delegate void InteractFunction();
+
     private void Awake()
     {
         _playerInputAction = new PlayerInputAction();
@@ -54,6 +56,20 @@ public class InputHandler : MonoBehaviour
     {
         _playerInputAction.Movement.LockOnTarget.performed -= function;
     }
+
+    #endregion
+
+    #region Interaction
+
+        public void SubscribeToInteraction(Action<InputAction.CallbackContext> InteractFunction)
+        {
+            _playerInputAction.Movement.Interact.performed += InteractFunction;
+        }
+
+        public void UnsubscribeFromInteraction(Action<InputAction.CallbackContext> InteractFunction)
+        {
+            _playerInputAction.Movement.Interact.performed -= InteractFunction;
+        }
 
     #endregion
 }
