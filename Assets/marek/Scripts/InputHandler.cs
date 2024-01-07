@@ -11,6 +11,7 @@ public class InputHandler : MonoBehaviour
     {
         _playerInputAction = new PlayerInputAction();
         _playerInputAction.Movement.Enable();
+        _playerInputAction.Combat.Enable();
     }
 
     #region Movement
@@ -55,5 +56,41 @@ public class InputHandler : MonoBehaviour
         _playerInputAction.Movement.LockOnTarget.performed -= function;
     }
 
+    #endregion
+    
+    #region Combat
+    // Subscription to every event of the combat system.
+    public void SubscribeToLightAttack(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.LightAttack.performed += function;
+    }
+    public void UnsubscribeFromLightAttack(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.LightAttack.performed -= function;
+    }
+    public void SubscribeToHeavyAttack(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.HeavyAttack.performed += function;
+    }
+    public void UnsubscribeFromHeavyAttack(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.HeavyAttack.performed -= function;
+    }
+    public void SubscribeToBackstep(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.Backstep.performed += function;
+    }
+    public void UnsubscribeFromBackstep(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.Backstep.performed -= function;
+    }
+    public void SubscribeToRoll(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.Roll.performed += function;
+    }
+    public void UnsubscribeFromRoll(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Combat.Roll.performed -= function;
+    }
     #endregion
 }
