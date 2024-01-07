@@ -56,4 +56,16 @@ public class InputHandler : MonoBehaviour
     }
 
     #endregion
+
+    #region UI
+    public void SubscribeToInventory(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Movement.Inventory.performed += function;
+    }
+
+    public void SubscribeFromInventory(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Movement.Inventory.performed -= function;
+    }
+    #endregion
 }
