@@ -11,4 +11,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/marek_dev.unity
     guid: 4f8cfcc76146ae641b0b4f80a9a24523
+<<<<<<< Updated upstream
+=======
+  - enabled: 0
+    path: Assets/Scenes/object-interaction_krystof.unity
+    guid: 8f5c1bccd01bb3a4584bddbc28fd6871
+  - enabled: 1
+    path: Assets/Scenes/scene-transition_Lobby.unity
+    guid: 0d104a469d0ffc441b50349c7c7fa10e
+  - enabled: 1
+    path: Assets/Scenes/scene-transition_Test1.unity
+    guid: c5e794396c8d7704cbbd82f4448cf664
+  - enabled: 1
+    path: Assets/Scenes/scene-transition_Test2.unity
+    guid: 6cf7c805de08cad4ca4f09a7c2d3fdf3
+>>>>>>> Stashed changes
   m_configObjects: {}
