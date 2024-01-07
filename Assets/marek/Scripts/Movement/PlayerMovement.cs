@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerAnimationHandler _animationHandler;
     [SerializeField] private LockOn _lockOn;
     [SerializeField] private Transform _camera;
+    [SerializeField] private Transform _quickTurnPoint;
 
     [Header("Movement Settings")]
     [SerializeField] private float _walkSpeed = 3f;
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        _quickTurnPoint.position = _camera.position;
         Gravity();
         Move();
     }
@@ -100,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         // This is necessary for quickturn to work correctly
-        Vector3 localDirection = _camera.right * direction.x + _camera.forward * direction.z;
+        Vector3 localDirection = _quickTurnPoint.right * direction.x + _quickTurnPoint.forward * direction.z;
         // For debug purposes
         DIRECTION = localDirection;
 
