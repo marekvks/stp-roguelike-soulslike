@@ -9,6 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/dev_krystof/Scenes/MainMenu.unity
     guid: 1caf4072ccb45d94e9e0c1af475ec5bf
+=======
+    path: Assets/Scenes/marek_dev.unity
+    guid: 4f8cfcc76146ae641b0b4f80a9a24523
+>>>>>>> main
   m_configObjects: {}

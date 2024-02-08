@@ -44,6 +44,24 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveNotNormalized"",
+                    ""type"": ""Value"",
+                    ""id"": ""8aeb6e59-7fbd-48c5-a7bd-ce1d2e9c4b7c"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LockOnTarget"",
+                    ""type"": ""Button"",
+                    ""id"": ""f92eecbb-8109-401b-8a1c-6d68da568952"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +130,83 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WS"",
+                    ""id"": ""30ed5b22-a4bc-45ed-85b2-fb336f46b20f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveNotNormalized"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""f7addd3c-ee44-4751-b5f3-df24ecdb97d0"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveNotNormalized"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8a665c6b-5b1c-4ee1-a1f4-129ff3445f0e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveNotNormalized"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""AD"",
+                    ""id"": ""91b82fc6-7f25-499e-97d2-261673e01f36"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveNotNormalized"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""754af84c-1169-4524-92ee-b39aada5f598"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveNotNormalized"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""81342e23-3e54-4511-8267-24c5b786af3b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveNotNormalized"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""283745e4-2c22-4d56-86cd-ec3e06b61358"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockOnTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +217,8 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Run = m_Movement.FindAction("Run", throwIfNotFound: true);
+        m_Movement_MoveNotNormalized = m_Movement.FindAction("MoveNotNormalized", throwIfNotFound: true);
+        m_Movement_LockOnTarget = m_Movement.FindAction("LockOnTarget", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +282,16 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Run;
+    private readonly InputAction m_Movement_MoveNotNormalized;
+    private readonly InputAction m_Movement_LockOnTarget;
     public struct MovementActions
     {
         private @PlayerInputAction m_Wrapper;
         public MovementActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Run => m_Wrapper.m_Movement_Run;
+        public InputAction @MoveNotNormalized => m_Wrapper.m_Movement_MoveNotNormalized;
+        public InputAction @LockOnTarget => m_Wrapper.m_Movement_LockOnTarget;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +307,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Run.started += instance.OnRun;
             @Run.performed += instance.OnRun;
             @Run.canceled += instance.OnRun;
+            @MoveNotNormalized.started += instance.OnMoveNotNormalized;
+            @MoveNotNormalized.performed += instance.OnMoveNotNormalized;
+            @MoveNotNormalized.canceled += instance.OnMoveNotNormalized;
+            @LockOnTarget.started += instance.OnLockOnTarget;
+            @LockOnTarget.performed += instance.OnLockOnTarget;
+            @LockOnTarget.canceled += instance.OnLockOnTarget;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -216,6 +323,12 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Run.started -= instance.OnRun;
             @Run.performed -= instance.OnRun;
             @Run.canceled -= instance.OnRun;
+            @MoveNotNormalized.started -= instance.OnMoveNotNormalized;
+            @MoveNotNormalized.performed -= instance.OnMoveNotNormalized;
+            @MoveNotNormalized.canceled -= instance.OnMoveNotNormalized;
+            @LockOnTarget.started -= instance.OnLockOnTarget;
+            @LockOnTarget.performed -= instance.OnLockOnTarget;
+            @LockOnTarget.canceled -= instance.OnLockOnTarget;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -237,5 +350,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
+        void OnMoveNotNormalized(InputAction.CallbackContext context);
+        void OnLockOnTarget(InputAction.CallbackContext context);
     }
 }

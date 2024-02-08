@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class InputHandler : MonoBehaviour
 {
@@ -42,6 +43,16 @@ public class InputHandler : MonoBehaviour
     {
         _playerInputAction.Movement.Run.performed -= start;
         _playerInputAction.Movement.Run.canceled -= end;
+    }
+
+    public void SubscribeToLockOnTarget(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Movement.LockOnTarget.performed += function;
+    }
+
+    public void UnsubscribeFromLockOnTarget(Action<InputAction.CallbackContext> function)
+    {
+        _playerInputAction.Movement.LockOnTarget.performed -= function;
     }
 
     #endregion
