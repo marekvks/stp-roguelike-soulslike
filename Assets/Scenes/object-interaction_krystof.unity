@@ -194,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11515992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0087554455, y: -0.000000018517024, z: 0.0000000052148037,
+  m_LocalRotation: {x: 0.0087554455, y: 0.000000018517024, z: -0.0000000052148037,
     w: 0.99996173}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -480,8 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114570678}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.045073256, y: 0.0000000141870276, z: -0.0000000045577204,
-    w: 0.9989837}
+  m_LocalRotation: {x: 0.04507324, y: -6.598426e-16, z: 1.7561325e-16, w: 0.9989837}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -560,8 +559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422992262}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.026894793, y: 0.000000018419376, z: -0.0000000055498717,
-    w: 0.9996383}
+  m_LocalRotation: {x: 0.026894793, y: -0.000000018419371, z: 0.00000000554987, w: 0.9996383}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1450,6 +1448,57 @@ MonoBehaviour:
     _minNumber: 55
     _maxNumeber: 58
   _dropPoint: {fileID: 773930099}
+--- !u!1 &1142338094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142338095}
+  - component: {fileID: 1142338096}
+  m_Layer: 0
+  m_Name: Player Quickturn Reference Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142338095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142338094}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000014901161, y: -0.0000000056799996, z: 0.0000000019724433,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596482415}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1818360609 &1142338096
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142338094}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 3.9233897, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 0
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources: []
 --- !u!1 &1151484311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,11 +2074,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596482412}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1663396, y: 0.000000026792895, z: -0.000000004519686, w: 0.98606855}
+  m_LocalRotation: {x: 0.16633959, y: -0.000000020863933, z: 0.0000000035195304, w: 0.98606855}
   m_LocalPosition: {x: 0, y: 3.5873036, z: -5.6575775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1142338095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 16.53, y: 156.476, z: 0}
 --- !u!114 &1596482416
@@ -2925,6 +2975,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1583150285268562497, guid: 47148eb4aea5d534e8144e3698f636db,
+        type: 3}
+      propertyPath: _lockOn
+      value: 
+      objectReference: {fileID: 759404759}
+    - target: {fileID: 1583150285268562497, guid: 47148eb4aea5d534e8144e3698f636db,
+        type: 3}
+      propertyPath: _inputHandler
+      value: 
+      objectReference: {fileID: 759404755}
     - target: {fileID: 1945345243332695639, guid: 47148eb4aea5d534e8144e3698f636db,
         type: 3}
       propertyPath: m_Name
@@ -2945,6 +3005,11 @@ PrefabInstance:
       propertyPath: _lockOnCamera
       value: 
       objectReference: {fileID: 2087392381}
+    - target: {fileID: 4939898834413474322, guid: 47148eb4aea5d534e8144e3698f636db,
+        type: 3}
+      propertyPath: _quickTurnPoint
+      value: 
+      objectReference: {fileID: 1142338095}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
