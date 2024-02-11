@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour, IInteractable
 {   
     [SerializeField] private RarityOfItem _rarity;
+    [SerializeField] private ClassOfItem _class;
 
     public void Interact()
     {
@@ -19,3 +20,12 @@ public enum RarityOfItem{
         Epic,
         Legendary
     }
+
+public enum ClassOfItem
+{
+    Class1,
+    Class2,
+    Class3,
+    Class4,
+    Class5
+}
