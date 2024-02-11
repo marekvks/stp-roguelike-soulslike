@@ -5,6 +5,8 @@ public class Player : Creature, IDrainStamina
 {
     [SerializeField] private float _maxStamina = 100f;
     private float _stamina;
+    public string Class;
+    [SerializeField] private SaveData _saveData;
     public float Stamina
     {
         get { return _stamina; }
@@ -20,6 +22,8 @@ public class Player : Creature, IDrainStamina
         _maxHealth = 100f;
         _health = _maxHealth;
         _stamina = _maxStamina;
+        Class = _saveData.LoadFromJSON().ClassName;
+        Debug.Log(Class);
     }
 
     public void DrainStamina(float stamina)

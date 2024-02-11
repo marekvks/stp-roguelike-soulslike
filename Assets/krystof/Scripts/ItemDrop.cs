@@ -6,6 +6,7 @@ public class ItemDrop : MonoBehaviour
 {
     [SerializeField] List<RarityGroup> listOfCurrentRarity = new List<RarityGroup>();
     [SerializeField] Transform _dropPoint;
+    [SerializeField] private Player _player;
 
    public void Start()
     {
@@ -21,14 +22,21 @@ public class ItemDrop : MonoBehaviour
 
     void DropItem(){
         int randomNumber = Random.Range(0, 101);
+        string playerClass = _player.Class;
 
         foreach(RarityGroup element in listOfCurrentRarity){
             if(randomNumber > element._minNumber && randomNumber <= element._maxNumeber)
             {
-                randomNumber = Random.Range(0, element._rarityList.Count - 1);
+                foreach (var VARIABLE in element.ClassList)
+                {
+                    if (VARIABLE.ClassName == playerClass)
+                    {
+                        randomNumber = Random.Range(0, VARIABLE._rarityList.Count - 1);
 
-                Instantiate(element._rarityList[randomNumber], _dropPoint);
-                return;
+                        Instantiate(VARIABLE._rarityList[randomNumber], _dropPoint);
+                        return; 
+                    }
+                }
             }
         }
     }
@@ -37,10 +45,16 @@ public class ItemDrop : MonoBehaviour
 [System.Serializable]
 public class RarityGroup{
     public RarityOfList _listRarity;
-    public List<GameObject> _rarityList = new List<GameObject>();
+    public List<ListClass> ClassList = new List<ListClass>();
 
     public int _minNumber;
     public int _maxNumeber;
+}
+[System.Serializable]
+public class ListClass
+{
+    public string ClassName;
+    public List<GameObject> _rarityList = new List<GameObject>();
 }
 
 public enum RarityOfList{
@@ -49,3 +63,5 @@ public enum RarityOfList{
         Epic,
         Legendary
     }
+
+
