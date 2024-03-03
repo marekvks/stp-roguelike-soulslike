@@ -57,6 +57,20 @@ public class InputHandler : MonoBehaviour
     }
 
     #endregion
+
+    #region Interaction
+
+        public void SubscribeToInteraction(Action<InputAction.CallbackContext> InteractFunction)
+        {
+            _playerInputAction.Movement.Interact.performed += InteractFunction;
+        }
+
+        public void UnsubscribeFromInteraction(Action<InputAction.CallbackContext> InteractFunction)
+        {
+            _playerInputAction.Movement.Interact.performed -= InteractFunction;
+        }
+
+    #endregion
     
     #region Combat
     // Subscription to every event of the combat system.
