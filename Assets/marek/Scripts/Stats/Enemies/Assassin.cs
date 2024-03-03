@@ -1,6 +1,5 @@
 public class Assassin : Enemy
 {
-    private float _damage = 30f;
 
     private void Start()
     {
