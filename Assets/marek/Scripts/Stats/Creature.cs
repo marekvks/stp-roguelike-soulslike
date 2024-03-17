@@ -15,6 +15,7 @@ public abstract class Creature : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(float damage)
     {
+        Debug.Log("Taking damage!");
         _health = Mathf.Clamp(_health - damage, 0f, _maxHealth);
     }
 

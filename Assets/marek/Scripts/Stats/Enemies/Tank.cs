@@ -7,7 +7,7 @@ public class Tank : Enemy
 
     private void Initialize()
     {
-        _damage = 50f;
+        Damage = 50f;
         _maxHealth = 230f;
         _health = _maxHealth;
         _enemyType = EnemyType.Melee;

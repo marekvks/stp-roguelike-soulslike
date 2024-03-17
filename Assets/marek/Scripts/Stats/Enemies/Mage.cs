@@ -7,7 +7,7 @@ public class Mage : Enemy
 
     private void Initialize()
     {
-        _damage = 60;
+        Damage = 60;
         _maxHealth = 80f;
         _health = _maxHealth;
         _enemyType = EnemyType.Ranged;

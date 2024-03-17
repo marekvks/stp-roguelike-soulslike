@@ -1,7 +1,12 @@
-﻿public abstract class Enemy : Creature
+﻿using System.Collections;
+using UnityEngine;
+
+public abstract class Enemy : Creature
 {
-    protected float _damage = 45f;
+    public float Damage = 45f;
     protected EnemyType _enemyType;
+    [HideInInspector] public bool Dead = false;
+    [SerializeField] protected float _despawnTime = 5f;
 
     public enum EnemyType
     {
@@ -11,6 +16,13 @@
 
     public override void Die()
     {
-        Destroy(gameObject);
+        Dead = true;
+        StartCoroutine(Despawn());
+    }
+
+    private IEnumerator Despawn()
+    {
+        yield return new WaitForSeconds(_despawnTime);
+        gameObject.SetActive(false);
     }
 }

@@ -8,11 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-    path: Assets/dev_krystof/Scenes/MainMenu.unity
-    guid: 1caf4072ccb45d94e9e0c1af475ec5bf
-    path: Assets/Scenes/marek_dev.unity
-    guid: 4f8cfcc76146ae641b0b4f80a9a24523
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/object-interaction_krystof.unity
     guid: 8f5c1bccd01bb3a4584bddbc28fd6871
+  - enabled: 1
+    path: Assets/Scenes/enemy-ai.unity
+    guid: 0c8412df0d0ff6645bb06b1a706e1908
   m_configObjects: {}
