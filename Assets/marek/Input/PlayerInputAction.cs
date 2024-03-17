@@ -62,6 +62,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""908c8b18-7d6b-49cf-ab05-9ecdacb0a460"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -205,6 +214,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LockOnTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ef00ab14-5879-4f89-82f8-0b69f0c347b0"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -378,6 +398,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Run;
     private readonly InputAction m_Movement_MoveNotNormalized;
     private readonly InputAction m_Movement_LockOnTarget;
+    private readonly InputAction m_Movement_Interact;
     public struct MovementActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -386,6 +407,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Movement_Run;
         public InputAction @MoveNotNormalized => m_Wrapper.m_Movement_MoveNotNormalized;
         public InputAction @LockOnTarget => m_Wrapper.m_Movement_LockOnTarget;
+        public InputAction @Interact => m_Wrapper.m_Movement_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -407,6 +429,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @LockOnTarget.started += instance.OnLockOnTarget;
             @LockOnTarget.performed += instance.OnLockOnTarget;
             @LockOnTarget.canceled += instance.OnLockOnTarget;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -423,6 +448,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @LockOnTarget.started -= instance.OnLockOnTarget;
             @LockOnTarget.performed -= instance.OnLockOnTarget;
             @LockOnTarget.canceled -= instance.OnLockOnTarget;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -516,6 +544,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnMoveNotNormalized(InputAction.CallbackContext context);
         void OnLockOnTarget(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
     public interface ICombatActions
     {
