@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0611b410bee6c7b4aafaa9130eaae0a9, type: 3}
   m_Name: Room1
   m_EditorClassIdentifier: 
-  RoomPrefab: {fileID: 6608310042742408759, guid: a13c4ff260e456041a0dfa2346275e6d,
-    type: 3}
-  CorridorPrefab: {fileID: 1116855404030579683, guid: 3010658fdca2deb449251180e1d80821,
+  RoomPrefab: {fileID: 1427197959177344047, guid: d1186ae7976d0be4692348f82d1b1141,
     type: 3}
