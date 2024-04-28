@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 1608086972622910273}
   m_Layer: 0
   m_Name: gate.005
-  m_TagString: Untagged
+  m_TagString: DownDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2252,6 +2252,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 493101032374344875}
+  - component: {fileID: 8902940474374117567}
+  - component: {fileID: -8961888644451744719}
   m_Layer: 0
   m_Name: Room 3
   m_TagString: Untagged
@@ -2303,6 +2305,39 @@ Transform:
   - {fileID: 463386206681673707}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8902940474374117567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7125544133999924658}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.6, y: 4, z: 1.68}
+  m_Center: {x: -5.13, y: 0.84, z: -6.54}
+--- !u!114 &-8961888644451744719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7125544133999924658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55328676c13067c4997fc1d4bce5bab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7407008265735906204
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,7 +2682,7 @@ GameObject:
   - component: {fileID: 2445574425521614172}
   m_Layer: 0
   m_Name: gate.005 (2)
-  m_TagString: Untagged
+  m_TagString: LeftDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3084,7 +3119,7 @@ GameObject:
   - component: {fileID: 4715306879817763955}
   m_Layer: 0
   m_Name: gate.006
-  m_TagString: Untagged
+  m_TagString: UpDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3191,7 +3226,7 @@ GameObject:
   - component: {fileID: 1660942384101141214}
   m_Layer: 0
   m_Name: gate.005 (1)
-  m_TagString: Untagged
+  m_TagString: RightDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
