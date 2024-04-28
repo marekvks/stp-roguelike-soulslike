@@ -24,6 +24,7 @@ class EnemySpawner : MonoBehaviour
         {
             Vector3 randomSpawnPointPosition = GetRandomPosition();
             GameObject enemy = Instantiate(_enemyPrefab, randomSpawnPointPosition, Quaternion.identity);
+            enemy.transform.SetParent(transform, true);
         }
     }
 
