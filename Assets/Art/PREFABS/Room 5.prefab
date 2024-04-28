@@ -3482,7 +3482,7 @@ GameObject:
   - component: {fileID: 1446880484530256700}
   m_Layer: 0
   m_Name: gate--NORMALS-OK.002 (1)
-  m_TagString: Untagged
+  m_TagString: LeftDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3589,7 +3589,7 @@ GameObject:
   - component: {fileID: 6291957820931981061}
   m_Layer: 0
   m_Name: gate--NORMALS-OK.001 (1)
-  m_TagString: Untagged
+  m_TagString: DownDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4094,10 +4094,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5806837540770703284, guid: e1fc3015c68d88f42a109963654eb211,
+        type: 3}
+      propertyPath: m_TagString
+      value: RightDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: -3922795469445738536, guid: e1fc3015c68d88f42a109963654eb211,
+        type: 3}
+      propertyPath: m_TagString
+      value: UpDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e1fc3015c68d88f42a109963654eb211,
         type: 3}
       propertyPath: m_Name
-      value: Room 5 1
+      value: Room 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4245,6 +4255,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8720811908247089116}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1fc3015c68d88f42a109963654eb211,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8567357786136806640}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1fc3015c68d88f42a109963654eb211,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -337936248146450364}
     - targetCorrespondingSourceObject: {fileID: -96384986286219439, guid: e1fc3015c68d88f42a109963654eb211,
         type: 3}
       insertIndex: -1
@@ -4426,6 +4444,45 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7155415926362282608, guid: e1fc3015c68d88f42a109963654eb211, type: 3}
+--- !u!1 &517986843650966921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e1fc3015c68d88f42a109963654eb211,
+    type: 3}
+  m_PrefabInstance: {fileID: 860516952050333912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8567357786136806640
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517986843650966921}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.43, y: 5.92, z: 1.51}
+  m_Center: {x: 7.56, y: 0.12, z: -9.66}
+--- !u!114 &-337936248146450364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517986843650966921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55328676c13067c4997fc1d4bce5bab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &537131804837035277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8321124769289648683, guid: e1fc3015c68d88f42a109963654eb211,

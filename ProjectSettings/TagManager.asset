@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - Door
+  - LeftDoor
+  - UpDoor
+  - RightDoor
+  - DownDoor
   layers:
   - Default
   - TransparentFX
