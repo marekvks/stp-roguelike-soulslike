@@ -33,6 +33,17 @@ public class SegSpawner : MonoBehaviour
         Debug.Log(_roomsInSegment[0].transform.position);
         Debug.Log(_previousSegmentRooms[0].transform.position);
     }
+    
+    //FOR SHOWCASING ONLY
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            DisableColliders();
+            RemovePreviousSegment();
+            SpawnSegment();
+        }
+    }
 
     public void DisableColliders()
     {
